@@ -10,20 +10,30 @@ namespace App1
     {
         static void Main(string[] args)
         {
-        head:
-            Console.Write("Please enter the square meter of the field:");
-            int field = Convert.ToInt32(Console.ReadLine()); // We take the square meter of the field from the user
-
-            if (field < 0) // The field cannot be negative
+            while (true)
             {
-                Console.WriteLine("The field cannot be negative!!");
-                goto head;
+                try
+                {
+                head:
+                    Console.Write("Please enter the square meter of the field:");
+                    int field = Convert.ToInt32(Console.ReadLine()); // We take the square meter of the field from the user
+                    if (field < 0)
+                    {
+                        Console.WriteLine("The field cannot be negative!!"); // The field cannot be negative
+                        goto head;
+                    }
+                    Console.Write("Output: ");
+                    calculate(field); // We assign the value we get from the user to the calculate method
+                    Console.WriteLine();
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("The field must be a number!!");
+                }
             }
 
-            Console.Write("Output: ");
-            calculate(field); // We assign the value we get from the user to the calculate method
-
-            Console.ReadKey(); // We use it to keep the output on the screen
+            //Console.ReadKey(); // We use it to keep the output on the screen
         }
         static void calculate(int field) // We find the largest possible perfect squares and print them 
         {
