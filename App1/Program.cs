@@ -17,9 +17,9 @@ namespace App1
                 head:
                     Console.Write("Please enter the square meter of the field:");
                     int field = Convert.ToInt32(Console.ReadLine()); // We take the square meter of the field from the user
-                    if (field < 0)
+                    if (field < 0 || field == 0 )
                     {
-                        Console.WriteLine("The field cannot be negative!!"); // The field cannot be negative
+                        Console.WriteLine("The field cannot be negative and zero !!"); // The field cannot be negative and zero
                         goto head;
                     }
                     Console.Write("Output: ");
